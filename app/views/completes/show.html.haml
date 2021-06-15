@@ -1,0 +1,9 @@
+= link_to 'カレンダーに戻る',user_show_path
+.completes-container
+  - @completes.each do |t|
+    .complete
+      = t.task
+      = t.created_at
+      = t.user.email
+      = link_to "達成を登録", completes_path(t.id)
+      = link_to "編集する", edit_complete_path(t.id)

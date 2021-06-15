@@ -1,0 +1,7 @@
+%h1 Complete your tasks
+%h3 達成率
+.complete
+  %p= @complete.task
+  %p= @complete.created_at
+= link_to "投稿一覧に戻る", completes_show_path
+= link_to "編集する", edit_complete_path(@complete.id)

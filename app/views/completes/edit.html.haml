@@ -1,0 +1,5 @@
+= form_for @complete do |f|
+  = f.label :task
+  = f.text_field :task, :size => 140
+  = f.submit "編集する"
+  = link_to '投稿一覧に戻る',completes_show_path

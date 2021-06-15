@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %link{:href => "css/application.scss", :media => "all", :rel => "stylesheet"}/
+    %script{:src => "js/fullcalender.min.js", :type => "text/javascript"}
+    %script{:src => "js/ja.js", :type => "text/javascript"}
+    %script{:src => "js/jquery-ui.min.js", :type => "text/javascript"}
+    %script{:src => "js/jquery.min.js", :type => "text/javascript"}
+    %script{:src => "js/moment.min.js", :type => "text/javascript"}
+  %body
+    #calendar
+    #new_event.modal{:role => "dialog", :tabindex => "-1"}
+      .modal-dialog{:role => "document"}
+        .modal-content
+          .modal-header
+            %h5.modal-title Modal title
+            %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+          .modal-body
+            %p Modal body text goes here.
+          .modal-footer
+            %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+            %button.btn.btn-primary{:type => "button"} Save changes
+    = link_to 'マイページ', user_index_path
+    = link_to 'タスクを投稿', completes_new_path
+    = link_to '見る', completes_show_path
+    = button_to 'ログアウト', destroy_user_session_path, method: :delete
