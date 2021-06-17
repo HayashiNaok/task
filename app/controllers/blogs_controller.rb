@@ -2,6 +2,8 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
     @blog = Blog.new
+    @completes = Complete.all
+    
   end
   
   def new

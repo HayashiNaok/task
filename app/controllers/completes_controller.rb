@@ -6,22 +6,24 @@ class CompletesController < ApplicationController
 
     
     def show
-      if params[:search] == nil
-        @completes = Complete.all
-      elsif params[:search] == ''
-        @completes = Complete.all
+      if params[:search] != nil && params[:search] != ''
+        #部分検索かつ複数検索
+        search = params[:search]
+        @completes = Complete.joins(:user).where("task LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%")
+        @completes = Kaminari.paginate_array(@completes).page(params[:page]).per(10)
       else
-        #部分検索
-        @completes = Complete.where("body LIKE ? ",'%' + params[:search] + '%')
+        @completes = Complete.all
+        @completes = Kaminari.paginate_array(@completes).page(params[:page]).per(10)
       end
     end
+
 
    
     def update
         complete = Complete.find(params[:id])
         complete.user_id = current_user.id
         if complete.update(complete_params)
-          redirect_to :action => "show", :id => complete.id
+          redirect_to controller: :user, action: :show, id: complete.id
         else
           redirect_to :action => "new"
         end
@@ -35,8 +37,8 @@ class CompletesController < ApplicationController
     end
 
     def destroy
-      tweet = Complete.find(params[:id])
-      tweet.destroy
+      @complete = Complete.find(params[:id])
+      @complete.destroy
       redirect_to action: :show
     end
 
@@ -44,10 +46,11 @@ class CompletesController < ApplicationController
         complete = Complete.new(complete_params)
         complete.user_id = current_user.id
         if complete.save
-          redirect_to :action => "show"
+          redirect_to controller: :user, action: :show, id: complete.id
         else
           redirect_to :action => "new"
         end
+      
     end
     
     def index
@@ -58,7 +61,4 @@ class CompletesController < ApplicationController
     def complete_params
         params.require(:complete).permit(:task)
     end
-
-
-    
 end

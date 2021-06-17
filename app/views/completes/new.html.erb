@@ -14,12 +14,12 @@
     document.getElementById("today").value = yyyy + '-' + mm + '-' + dd;
   }
 </script>
-<%= form_for @complete do |f| %>
+
+<%= form_with(model: @complete, local: true) do |form| %>
   <div class="field">
-    <%= f.label :task %>
-    <%= f.text_field :task, :size => 140 %>
+    <%= form.label :task %>
+    <%= form.text_field :task, :size => 140 %>
   </div>
-  <%= f.submit "投稿する" %>
+  <%= form.submit "投稿する" %>
 <% end %>
 <%= link_to "カレンダーに戻る", user_show_path %>
-</html>

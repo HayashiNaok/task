@@ -4,6 +4,7 @@ class UserController < ApplicationController
     end
 
     def show
-        
+        @completes = Complete.all
+      
     end
 end

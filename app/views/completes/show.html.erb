@@ -7,11 +7,16 @@
   <%= submit_tag '検索する'  %>
 <% end %>
 
+
 <%= link_to 'カレンダーに戻る',user_show_path %>
 <%= link_to 'タスクを投稿', completes_new_path %>
 <% if user_signed_in? %>
 <%= link_to "マイページへ", user_path(current_user.id) %>　
 <% end %>
+
+<br>
+<%= page_entries_info @completes %>
+
 <div class="completes-container">
   <% @completes.each do |t| %>
     <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>　
@@ -20,10 +25,15 @@
       <%= t.created_at %>
       <%= t.user.email %>
       <%= link_to "達成を登録", complete_path(t.id) %>
-      <%= link_to "編集する", edit_complete_path(t.id) %>
-      <%= button_to "削除する", complete_path(t.id), method: :delete %>
-    </div>
+      <% if user_signed_in? && current_user.id == t.user_id %>  
+        <%= link_to "編集する", edit_complete_path(t.id) %>
+        <%= button_to "削除する", complete_path(t.id), method: :delete %>
+      <% end %>  
+    </div>  
   <% end %>
+  <%= paginate @completes %>
 </div>
+
+
 </body>
 </html>
