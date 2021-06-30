@@ -14,13 +14,15 @@
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
+    <p>パスワードを表示する</p>
       <%= f.check_box :remember_me %>
-      <h2>私を覚える</h2>
+      
     </div>
   <% end -%>
+  <br>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>
 

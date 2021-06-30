@@ -1,23 +1,37 @@
+<body>
+<h1>Complete your tasks</h1>
+<br>
+<h2>投稿画面</h2>
+<br>
+
 <%= form_with(model: @blog, local: true) do |form| %>
 
   <div class="title">
-    <%= form.label :title %>
+    <%= form.label :　1日のタイトル%>
     <%= form.text_field :title %>
   </div>
 
-    <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
+  <div class="time">
+    <%= form.label :　日付 %>
+    <input type="date"> 
+    
   </div>
+  
 
   <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :　内容 %>
+    <textarea name="in01" col="30" rows="3" maxlength="100" placeholder="内容を入力してくだい">
+    </textarea>
   </div>
 
-
+  <br>
   <div class="submit">
-    <%= form.submit %>
+    <%= form.submit  "投稿" %>
   </div>
 
 <% end %>
+<br>
+
+<%= link_to 'カレンダーに戻る', blogs_index_path %>
+
+</body>

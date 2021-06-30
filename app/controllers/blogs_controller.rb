@@ -1,11 +1,13 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @blogs = Blog.all
-    @blog = Blog.new
-    @completes = Complete.all
-    
   end
-  
+  def about
+  end
+  def search
+    @blogs = Blog.all
+  end
   def new
     @blog = Blog.new
   end
@@ -17,6 +19,8 @@ class BlogsController < ApplicationController
   def create
     Blog.create(blog_parameter)
     redirect_to blogs_path
+    
+   
   end
 
   def destroy
@@ -41,7 +45,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_parameter
-    params.require(:blog).permit(:title, :content, :start_time)
+    params.require(:blog).permit(:title, :content, :date)
   end
 
 end

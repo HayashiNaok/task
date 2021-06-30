@@ -1,0 +1,54 @@
+<head>
+<%= stylesheet_link_tag 'top.show', :media => "all" %>
+</head>
+<body>
+
+<div class="top-container">
+<h2>Complete your tasks</h2>
+</div>
+<br>
+<div class="center-container">
+<h1>自己紹介</h1>
+<br>
+<br>
+</div>
+
+<div class="container">
+<h1>普通ではないTodoリスト</h1>
+
+<p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
+だからカレンダー機能があるTodoリストを使う。</p>
+
+</p>しかし、Todoリストでも面白い機能がなければ継続してはいけくれない。<br>
+なので、当サイトでは以下の2つの機能を用いた。</p>
+
+<li>達成率に応じたイラストの表示</li>
+<li>達成したかしてないかの選択によって異なるイラスト</li>
+
+</div>
+
+<div class="wrap">
+<h1>機能紹介<h1>
+</div>
+<br>
+<div class="wrap-first">
+<h2>カレンダー機能</h2>
+<div class ="c">
+<img src="/assets/カレンダー機能.png">
+</div>
+
+<div class="wrap-second">
+<h2>イラスト機能</h2>
+<p>自分で設定したタスクを達成することができたら</p>
+<img src="/assets/達成できた.png">
+<p>自分で設定してタスクを達成することができなかったら</p>
+<img src="/assets/達成できなかった.png">
+<p>このように2つのパターンがあり、面白味があると思う</p>
+</div>
+
+<%= link_to "トップページに戻る", top_index_path %>
+
+
+
+</body>
+

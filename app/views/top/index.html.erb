@@ -1,3 +1,50 @@
-トップページ
-<%= link_to "ログイン", user_show_path %>
-<%= link_to "新規登録",  new_user_registration_path %>
+<html>
+<div class="bg-mask">
+<head>
+<%= stylesheet_link_tag 'top.index', :media => "all" %>
+</head>
+<body>
+
+
+
+<header>
+
+<h1>Complete your tasks</h1>
+<div class="top">
+    <ul class="list">
+        <li><%= link_to '自己紹介', top_show_path %></li>
+        <li><%= link_to "ログイン", blogs_path %></li>
+        <li><%= link_to "新規登録",  new_user_registration_path %></li>
+    </ul>    
+</div>
+</header>
+
+<br>
+<br>
+
+<h1>普通ではないTodoリスト</h1>
+
+<p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
+だからカレンダー機能があるTodoリストを使う。</p>
+
+</p>しかし、Todoリストでも面白い機能がなければ継続してはいけくれない。<br>
+なので、当サイトでは以下の2つの機能を用いた。</p>
+
+<li>達成率に応じたイラストの表示</li>
+<li>達成したかしてないかの選択によって異なるイラスト</li>
+
+<p>これらを利用してTodoリストを継続しよう</p>
+<p>さらに見る</p>
+<%= link_to '自己紹介', top_show_path %>
+<div class="center">
+<h2>使い方</h2>
+<p>下の動画を参考にしてください</p>
+<video src=>
+</div>
+
+<div class="back">
+<h3>アンケートのご協力</h3>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfzsp80y82Pmdffoc7yeVkDxoo4BVAnwVI9Im0Mh22rfolzaQ/viewform?usp=sf_link">アンケート</a>
+</div>
+</body>
+</html>

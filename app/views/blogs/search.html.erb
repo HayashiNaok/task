@@ -1,0 +1,13 @@
+<h1>Complete your tasks</h1>
+<h3>検索画面</h3>
+<%= link_to "新規投稿へ", blogs_new_path %>
+<div class="blogs-container">
+  <% @blogs.each do |t| %>
+    <div class="blog">
+      
+    
+      <%= t.title %>
+      <%= t.created_at %>
+    </div>
+  <% end %>
+</div>

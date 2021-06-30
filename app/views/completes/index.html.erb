@@ -1,9 +1,0 @@
-<h1>Complete your tasks</h1>
-<h3>達成率</h3>
-<div class="complete">
-  <p><%= @complete.task %></p>
-  <p><%= @complete.created_at %></p>
-</div>
-
-<%= link_to "投稿一覧に戻る", completes_show_path %>
-<%= link_to "編集する", edit_complete_path(@complete.id) %>
