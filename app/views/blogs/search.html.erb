@@ -1,13 +1,46 @@
+<head>
+<%= stylesheet_link_tag 'blogs.search', :media => "all" %>
+</head>
+
 <h1>Complete your tasks</h1>
+
+<ul class="right">
+  <li><%= link_to "新規投稿へ", blogs_new_path %></li>
+  <li><%= link_to "カレンダーに戻る", blogs_index_path %></li>
+  <li><% if user_signed_in? %></li>
+  <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
+</ul>  　
+<% end %>
 <h3>検索画面</h3>
-<%= link_to "新規投稿へ", blogs_new_path %>
+<%= form_tag({controller:"blogs",action:"search"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag '検索'  %>
+<% end %>
+
+<br>
+<%= page_entries_info @blogs %>
 <div class="blogs-container">
   <% @blogs.each do |t| %>
     <div class="blog">
       
-    
+      <%= t.user.email %>
       <%= t.title %>
       <%= t.created_at %>
+      <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
+      <% if user_signed_in? %>
+      <% if current_user.already_liked?(@tweet) %>
+          <%= link_to tweet_like_path(@tweet), method: :delete do %>
+             <p>いいねを取り消す</p><%= @tweet.likes.count %>
+          <% end %>
+      <% else %>
+          <%= link_to tweet_likes_path(@tweet), method: :post do %>
+             <p>いいね</p><%= @tweet.likes.count %>
+          <% end %>
+      <% end %>
+  <% else %>
+  <% end %>
+      <br>
     </div>
   <% end %>
 </div>
+<%= paginate @blogs %>

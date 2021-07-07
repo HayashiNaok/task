@@ -1,21 +1,39 @@
+<head>
+<%= stylesheet_link_tag 'blogs.new', :media => "all" %>
+</head>
+
 <body>
-<h1>Complete your tasks</h1>
-<br>
-<h2>投稿画面</h2>
+
+<div class="header2">
+  <div class="header-logo">Complete your tasks</div>
+  <div class="header-menu">
+    <a href="/blogs/index"> カレンダーに戻る</a>
+  </div>
+
+</div>
+
+<div class="main">
+  <div class="moji">投稿画面</div>
+    
+  
 <br>
 
 <%= form_with(model: @blog, local: true) do |form| %>
 
   <div class="title">
+    <div class="text">
     <%= form.label :　1日のタイトル%>
+    </div>
     <%= form.text_field :title %>
   </div>
+  <br>
 
   <div class="time">
     <%= form.label :　日付 %>
-    <input type="date"> 
+    <%= form.date_field:date %>
     
   </div>
+  <br>
   
 
   <div class="content">
@@ -30,8 +48,8 @@
   </div>
 
 <% end %>
+</div>
 <br>
 
-<%= link_to 'カレンダーに戻る', blogs_index_path %>
 
 </body>

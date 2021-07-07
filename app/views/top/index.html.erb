@@ -6,18 +6,22 @@
 <body>
 
 
+<div class="header1">
+   <div class="header-logo">Complete your tasks</div>
+        <div class="top">
+        <ul class="list">
+            <li><%= link_to '自己紹介', top_show_path %></li>
+            <li><%= link_to "ログイン", blogs_path %></li>
+            <li><%= link_to "新規登録",  new_user_registration_path %></li>
+        </ul>    
+        </div>
 
-<header>
-
-<h1>Complete your tasks</h1>
-<div class="top">
-    <ul class="list">
-        <li><%= link_to '自己紹介', top_show_path %></li>
-        <li><%= link_to "ログイン", blogs_path %></li>
-        <li><%= link_to "新規登録",  new_user_registration_path %></li>
-    </ul>    
+    </div>
 </div>
-</header>
+
+
+
+
 
 <br>
 <br>
@@ -39,7 +43,7 @@
 <div class="center">
 <h2>使い方</h2>
 <p>下の動画を参考にしてください</p>
-<video src=>
+<video autoplay muted playsinline  src="prevideo.mp4"></video>
 </div>
 
 <div class="back">

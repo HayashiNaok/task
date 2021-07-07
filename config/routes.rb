@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'top#index'
   get 'seminars/index' => 'seminar/index'
   devise_for :users
+  resources :users, only: [:show]
   
   get 'top/index' => 'top#index'
  
@@ -21,7 +22,10 @@ Rails.application.routes.draw do
   post 'blogs' => 'blogs#create'
 
    
-  resources :blogs
+  resources :blogs do
+  resources :likes, only: [:create, :destroy]
+  end
+
   resources :schedules
 
 

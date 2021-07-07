@@ -1,23 +1,57 @@
+<html>
+<head>
+<%= stylesheet_link_tag 'blogs.edit', :media => "all" %>
+</head>
+
+<div class="header2">
+<div class="header-logo">Complete your tasks</div>
+  <div class="header-menu">
+    <a href="/blogs/show"> 詳細に戻る</a>
+  </div>
+</div>
+
+<br>
+<br>
+<body>
+
+
+
+
+
+
 <%= form_with(model: @blog, local: true) do |form| %>
 
   <div class="title">
-    <%= form.label :title %>
+    <div class="text">
+    <%= form.label :　1日のタイトル%>
+    </div>
     <%= form.text_field :title %>
   </div>
+  <br>
 
-    <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
+  <div class="time">
+    <%= form.label :　日付 %>
+    <%= form.date_field:date %>
+    
   </div>
+  <br>
+  
 
   <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :　内容 %>
+    <textarea name="in01" col="30" rows="3" maxlength="100" placeholder="内容を入力してくだい">
+    </textarea>
   </div>
 
-
+  <br>
   <div class="submit">
-    <%= form.submit %>
+    <%= form.submit  "更新" %>
   </div>
 
 <% end %>
+</div>
+<br>
+
+
+</body>
+</html>

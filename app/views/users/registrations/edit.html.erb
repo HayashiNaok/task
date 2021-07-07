@@ -5,24 +5,24 @@
 
   <!--アカウント編集時に名前を入力できるようにフォームを追加-->
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :名前 %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <!--アカウント編集時にプロフィールを入力できるようにフォームを追加-->
   <div class="field">
-    <%= f.label :profile %><br />
+    <%= f.label :プロフィール %><br />
     <%= f.text_area :profile, autofocus: true %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "更新する" %>
   </div>
 <% end %>
 
-<%= link_to "Back", :back %>
+<%= link_to "戻る", :back %>

@@ -1,6 +1,19 @@
+<html>
+<head>
+<%= stylesheet_link_tag 'top.index', :media => "all" %>
+</head>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Complete your tasks</h1>
+<div class="header1">
+  <div class="header-logo">Complete your tasks</div>
+  <div class="header-menu">
+
+    <a href="/blogs/new">タスクを投稿</a>
+    <a href="/blogs/search">検索画面に移る</a>
+    <a href="/users/show">マイページ</a>
+  </div>  
+</div>
 
 <table>
   <thead>
@@ -19,12 +32,6 @@
 </table>
 
 
-<div class="center">
-  <ul class="current">
-    <li><%= link_to 'タスクを投稿', new_blog_path %></li>
-    <li><%= link_to '検索画面に移る', blogs_search_path %></li>
-    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-  </ul>  
 
 <br>
 <br>
@@ -41,3 +48,9 @@
   <% end %>
 <% end %>
 <br>
+<footer>
+
+  <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"menu" %>
+
+</footer>
+</html>

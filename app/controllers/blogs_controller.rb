@@ -1,13 +1,19 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @blogs = Blog.all
+    @blogs = Blog.where(user_id: current_user.id)
   end
-  def about
-  end
+  
   def search
-    @blogs = Blog.all
+    if params[:search] != nil && params[:search] != ''
+      #部分検索かつ複数検索
+      search = params[:search]
+      @blogs = Blog.joins(:user).where("title LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%").page(params[:page]).per(10)
+    else
+      @blogs = Blog.all.page(params[:page]).per(10)
+    end
   end
+
   def new
     @blog = Blog.new
   end
@@ -17,8 +23,18 @@ class BlogsController < ApplicationController
   end
 
   def create
-    Blog.create(blog_parameter)
-    redirect_to blogs_path
+    blog = Blog.new(blog_params)
+    
+
+    #追加箇所
+    blog.user_id = current_user.id
+    #ここまで
+
+    if blog.save
+      redirect_to action: "index"
+    else
+      redirect_to action: "new"
+    end
     
    
   end
@@ -44,7 +60,7 @@ class BlogsController < ApplicationController
 
   private
 
-  def blog_parameter
+  def blog_params
     params.require(:blog).permit(:title, :content, :date)
   end
 

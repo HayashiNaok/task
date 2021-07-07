@@ -2,8 +2,19 @@
 <head>
 <%= stylesheet_link_tag 'users.registrations.new', :media => "all" %>
 </head>
+<body>
+<div class="header1">
+  <div class="header-logo">Complete your tasks</div>
+  <div class="header-menu">
 
+    <a href="/users/sign_in">ログイン</a>
+    
+  </div>  
+</div>
+
+<div class="top">
 <h2>新規登録</h2>
+<br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -31,11 +42,12 @@
     <%= f.label :確認用パスワード %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit "登録する" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+</body>
 </html>

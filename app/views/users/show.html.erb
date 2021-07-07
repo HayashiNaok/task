@@ -1,4 +1,4 @@
-<h1>users#show</h1>
+<h1>Complete your tasks</h1>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p>プロフィール : <%= @user.profile %></p>
@@ -8,14 +8,14 @@
 <% end %>
 
 <h2>ユーザーの投稿一覧</h2>
-<% @user.completes.each do |t| %>
+<% @user.blogs.each do |t| %>
   <%= t.user.name %>
-  <%= t.task %>
+  <%= t.title %>
 <% end %>
 
 <!-- 以下はいいね機能を実装している場合-->
 
 <!-- ここまで-->
 
-<%= link_to "投稿一覧に戻る", completes_show_path %>
-<%= link_to "カレンダーに戻る", user_show_path %>
+<%= link_to "投稿一覧に戻る", blogs_search_path %>
+<%= link_to "カレンダーに戻る", blogs_index_path %>

@@ -29,11 +29,12 @@ body:before{
 
     
 
-ul.list {
+.header1 {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     list-style: none;
+    padding: 30px;
 }
 
 li {

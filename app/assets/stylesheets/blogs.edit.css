@@ -1,25 +1,28 @@
+.header2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+
 .header-logo {
     font-size:30px ;
     font-family: 'Times New Roman', Times, serif;
 }
 
-.header1 {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
-    
-}
-.header1 .header-menu a {
+
+.header2 .header-menu a {
     text-decoration: none;
     color: #707070;
     padding: 0 10px;
     background-color:#F3F0EA;
 }
 
-.header1 .header-menu a:hover {
+.header2 .header-menu a:hover {
     border-bottom: 2px solid #FD5A5F;
     padding-bottom: 10px;
 }
-footer {
-    padding: 10px;
+
+body{
+    padding: 15px;
 }
