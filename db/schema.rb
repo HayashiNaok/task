@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_06_30_174027) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.date "date"
-    t.boolean "check", default: false, null: false
+    t.string "check"
   end
 
   create_table "completes", force: :cascade do |t|

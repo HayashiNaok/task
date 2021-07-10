@@ -11,7 +11,7 @@
 
     <a href="/blogs/new">タスクを投稿</a>
     <a href="/blogs/search">検索画面に移る</a>
-    <a href="/users/show">マイページ</a>
+    <%= link_to "マイページ", user_path(current_user.id) %>
   </div>  
 </div>
 

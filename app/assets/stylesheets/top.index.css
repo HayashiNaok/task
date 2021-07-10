@@ -4,7 +4,7 @@ body {
     background-size: cover;               /* 全画面 */
     background-attachment: fixed;         /* 固定 */
     background-position: center center;   /* 縦横中央 */
-    
+    z-index: 0;
     margin: 0;
     padding: 0;
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -43,4 +43,10 @@ li {
 }
 li:last-child {
     border-right: none;
+}
+.hu {
+    padding: 15px;
+}
+.back {
+    padding: 15px;
 }

@@ -1,20 +1,25 @@
+<html>
 <head>
 <%= stylesheet_link_tag 'top.show', :media => "all" %>
 </head>
 <body>
 
-<div class="top-container">
-<h2>Complete your tasks</h2>
+
+<div class="header1">
+  <div class="header-logo">Complete your tasks</div>
+  <div class="header-menu">
+
+    <a href="/top/index">トップページ</a>
+  </div>  
 </div>
-<br>
 <div class="center-container">
-<h1>自己紹介</h1>
+<h2>自己紹介</h2>
 <br>
-<br>
+
 </div>
 
 <div class="container">
-<h1>普通ではないTodoリスト</h1>
+<h2>普通ではないTodoリスト</h2>
 
 <p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
 だからカレンダー機能があるTodoリストを使う。</p>
@@ -28,9 +33,10 @@
 </div>
 
 <div class="wrap">
-<h1>機能紹介<h1>
+<h2>機能紹介</h2>
 </div>
 <br>
+
 <div class="wrap-first">
 <h2>カレンダー機能</h2>
 <div class ="c">
@@ -46,9 +52,10 @@
 <p>このように2つのパターンがあり、面白味があると思う</p>
 </div>
 
-<%= link_to "トップページに戻る", top_index_path %>
+
 
 
 
 </body>
+</html>
 

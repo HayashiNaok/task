@@ -64,4 +64,7 @@ class BlogsController < ApplicationController
     params.require(:blog).permit(:title, :content, :date)
   end
 
+  def 
+    test
+  end
 end

@@ -2,53 +2,51 @@
 <div class="bg-mask">
 <head>
 <%= stylesheet_link_tag 'top.index', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+</script>
+
 </head>
 <body>
+<div class="hp">
 
+    <div class="header1">
+    <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
 
-<div class="header1">
-   <div class="header-logo">Complete your tasks</div>
-        <div class="top">
-        <ul class="list">
-            <li><%= link_to '自己紹介', top_show_path %></li>
-            <li><%= link_to "ログイン", blogs_path %></li>
-            <li><%= link_to "新規登録",  new_user_registration_path %></li>
-        </ul>    
-        </div>
-
+        <a href="/top/show">自己紹介</a>
+        <a href="/users/sign_in">ログイン</a>
+        <a href="/users/sign_up">新規登録</a>
+    </div>  
     </div>
-</div>
+    <br>
+    <br>
+    <div class="hu">
+    <h2>普通ではないTodoリスト</h2>
 
+    <p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
+    だからカレンダー機能があるTodoリストを使う。</p>
 
+    </p>しかし、Todoリストでも面白い機能がなければ継続してはいけくれない。<br>
+    なので、当サイトでは以下の2つの機能を用いた。</p>
 
+    <li>達成率に応じたイラストの表示</li>
+    <li>達成したかしてないかの選択によって異なるイラスト</li>
 
+    <p>これらを利用してTodoリストを継続しよう</p>
+    <p> 右上の「自己紹介」を押してさらに見よう</p>
+    </div>
+    <div class="center">
+    <h2>使い方</h2>
+    <p>下の動画を参考にしてください</p>
+    
+    </div>
 
-<br>
-<br>
-
-<h1>普通ではないTodoリスト</h1>
-
-<p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
-だからカレンダー機能があるTodoリストを使う。</p>
-
-</p>しかし、Todoリストでも面白い機能がなければ継続してはいけくれない。<br>
-なので、当サイトでは以下の2つの機能を用いた。</p>
-
-<li>達成率に応じたイラストの表示</li>
-<li>達成したかしてないかの選択によって異なるイラスト</li>
-
-<p>これらを利用してTodoリストを継続しよう</p>
-<p>さらに見る</p>
-<%= link_to '自己紹介', top_show_path %>
-<div class="center">
-<h2>使い方</h2>
-<p>下の動画を参考にしてください</p>
-<video autoplay muted playsinline  src="prevideo.mp4"></video>
-</div>
-
-<div class="back">
-<h3>アンケートのご協力</h3>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSfzsp80y82Pmdffoc7yeVkDxoo4BVAnwVI9Im0Mh22rfolzaQ/viewform?usp=sf_link">アンケート</a>
+    <div class="back">
+    <h3>アンケートのご協力</h3>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzsp80y82Pmdffoc7yeVkDxoo4BVAnwVI9Im0Mh22rfolzaQ/viewform?usp=sf_link">アンケート</a>
+    </div>
 </div>
 </body>
 </html>

@@ -1,55 +1,91 @@
 <head>
 <%= stylesheet_link_tag 'blogs.new', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
-
-<div class="header2">
-  <div class="header-logo">Complete your tasks</div>
-  <div class="header-menu">
-    <a href="/blogs/index"> カレンダーに戻る</a>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
   </div>
-
 </div>
-
-<div class="main">
-  <div class="moji">投稿画面</div>
-    
+<script>
+$(function() {
+  var h = $(window).height();
   
-<br>
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',100);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
 
-<%= form_with(model: @blog, local: true) do |form| %>
+<div id="wrap">
 
-  <div class="title">
-    <div class="text">
-    <%= form.label :　1日のタイトル%>
+
+
+  <div class="header2">
+    <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
+      <a href="/blogs/index"> カレンダーに戻る</a>
     </div>
-    <%= form.text_field :title %>
-  </div>
+
+  </div>  
+
+  <div class="main">
+    <div class="moji">投稿画面</div>
+    
+  
   <br>
 
-  <div class="time">
-    <%= form.label :　日付 %>
-    <%= form.date_field:date %>
+  <%= form_with(model: @blog, local: true) do |form| %>
+
+    <div class="title">
+      <div class="text">
+      <%= form.label :　1日のタイトル%>
+      </div>
+      <%= form.text_field :title %>
+    </div>
+    <br>
+
+    <div class="time">
+      <%= form.label :　日付 %>
+      <%= form.date_field:date %>
     
-  </div>
-  <br>
+    </div>
+    <br>
   
 
-  <div class="content">
-    <%= form.label :　内容 %>
-    <textarea name="in01" col="30" rows="3" maxlength="100" placeholder="内容を入力してくだい">
-    </textarea>
-  </div>
+    <div class="content">
+      <%= form.label :　内容 %>
+      <textarea name="in01" col="30" rows="3" maxlength="100" placeholder="内容を入力してくだい">
+      </textarea>
+    </div>
 
+    <br>
+    <div class="submit">
+      <%= form.submit  "投稿" %>
+    </div>
+
+  <% end %>
+  </div>
   <br>
-  <div class="submit">
-    <%= form.submit  "投稿" %>
-  </div>
 
-<% end %>
 </div>
-<br>
-
-
 </body>

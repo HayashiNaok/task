@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'blogs/new' => 'blogs#new'
   get 'top/show' =>'top#show'
   post 'blogs' => 'blogs#create'
+  get 'blogs/test' => 'blogs#test'
 
    
   resources :blogs do

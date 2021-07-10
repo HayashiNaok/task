@@ -5,17 +5,19 @@
 <div class="header1">
   <div class="header-logo">Complete your tasks</div>
   <div class="header-menu">
-
-    <a href="/users/sign_up">新規登録</a>
-    <a href="/users/password/new">パスワードを忘れた</a>
-    
+    <div class="d">
+      <a href="/users/sign_up">新規登録</a>
+    </div>
+    <div class="c">  
+      <a href="/users/password/new">パスワードを忘れた</a>
+    </div>
   </div>  
 </div>
 <br>
 <body>
 
 <h2>ログイン画面</h2>
-<p>※登録したメールアドレスとパスワードを入力してください。</p>
+<br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -35,7 +37,6 @@
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
-
 
 </body>
 

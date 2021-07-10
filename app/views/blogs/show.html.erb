@@ -7,14 +7,33 @@
 </p>
 
 <p>
-  <strong>時間</strong>
-  <%= @blog.start_time.strftime("%Y-%m-%d %H:%M") %>
+  <strong>日付</strong>
+  <%= @blog.date %>
 </p>
 
 <p>
   <strong>内容</strong>
   <%= @blog.content %>
 </p>
+
+
+<%= form_with(model: @blog, local: true) do |form| %>
+
+  
+  <div class="time">
+   
+    <%= form.radio_button :check, "達成した" %>達成した 
+    <%= form.radio_button :check ,"達成してない" %>達成できなかった
+  </div>
+  <br>
+  
+  <br>
+  <div class="submit">
+    <%= form.submit  "更新" %>
+    
+  </div>
+
+<% end %>
 
 <%= link_to '編集', edit_blog_path(@blog) %> |
 <%= link_to '戻る', blogs_path %>
