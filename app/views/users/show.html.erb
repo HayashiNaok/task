@@ -1,4 +1,11 @@
-<h1>Complete your tasks</h1>
+<div class="header1">
+        <div class="header-logo">Complete your tasks</div>
+        <div class="header-menu">
+
+          <%= link_to "投稿一覧に戻る", blogs_search_path %>
+          <%= link_to "カレンダーに戻る", blogs_index_path %>
+        </div>  
+</div>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 <p>プロフィール : <%= @user.profile %></p>
@@ -19,3 +26,46 @@
 
 <%= link_to "投稿一覧に戻る", blogs_search_path %>
 <%= link_to "カレンダーに戻る", blogs_index_path %>
+
+<br>
+<h2>ユーザーのカレンダー</h2>
+
+<table>
+    <thead>
+      <tr>
+        
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @blogs.each do |blog| %>
+        <tr>
+          
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+  <br>
+  <br>
+
+
+  <br>
+  <%= month_calendar events: @blogs do |date, blogs| %>
+    <%= date.day %>
+
+    <% blogs.each do |blog| %>
+      <div>
+        <%= link_to blog.title, blog %>
+      </div>
+    <% end %>
+  <% end %>
+  <br>
+  <footer>
+
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"menu" %>
+
+  </footer>
+

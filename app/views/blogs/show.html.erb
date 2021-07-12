@@ -1,70 +1,113 @@
-<p id="notice"><%= notice %></p>
+<html>
+<head>
+<%= stylesheet_link_tag 'blogs.show', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
 
-
-<p>
-  <strong>タイトル</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>日付</strong>
-  <%= @blog.date %>
-</p>
-
-<p>
-  <strong>内容</strong>
-  <%= @blog.content %>
-</p>
-
-
-<%= form_with(model: @blog, local: true) do |form| %>
-
-  
-  <div class="time">
-   
-    <%= form.radio_button :check, "達成した" %>達成した 
-    <%= form.radio_button :check ,"達成してない" %>達成できなかった
+<body>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
   </div>
-  <br>
-  
-  <br>
-  <div class="submit">
-    <%= form.submit  "更新" %>
-    
-  </div>
-
-<% end %>
-
-<%= link_to '編集', edit_blog_path(@blog) %> |
-<%= link_to '戻る', blogs_path %>
-
-<p>達成できたか出来てないか選択してください</p>
-<select id="select">
-  <option value="A">達成できた</option>
-  <option value="B">達成できなかった</option>
-</select>
-
-<div class="a" >
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXJhJtYwYtuXJXgVt4oIDR4YFr0umUjAEvw&usqp=CAU">
 </div>
-
-<div class="b">
-  <img src="https://ge-mag.up.seesaa.net/image/bakanisuru-c5d4e-thumbnail2.png">
-</div>
-
 <script>
-const select = document.querySelector("#select")
-select.addEventListener("change", () => {
-  const b = document.querySelector(".b")
-  const a = document.querySelector(".a")
-  if (select.value === "A" ) {
-    b.style.visibility = "hidden"
-    a.style.visibility = "visible"
-
-  } else {
-    b.style.visibility = "visible" 
-    a.style.visibility = "hidden" 
-
-  }
-})
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
 </script>
+
+<div id="wrap">
+  <p id="notice"><%= notice %></p>
+
+
+  <p>
+    <strong>タイトル</strong>
+    <%= @blog.title %>
+  </p>
+
+  <p>
+    <strong>日付</strong>
+    <%= @blog.date %>
+  </p>
+
+  <p>
+    <strong>内容</strong>
+    <%= @blog.content %>
+  </p>
+
+
+  <%= form_with(model: @blog, local: true) do |form| %>
+
+    
+    <div class="time">
+    
+      <%= form.radio_button :check, "達成した" %>達成した 
+      <%= form.radio_button :check ,"達成してない" %>達成できなかった
+    </div>
+    <br>
+    
+    <br>
+    <div class="submit">
+      <%= form.submit  "更新" %>
+      
+    </div>
+
+  <% end %>
+
+  <%= link_to '編集', edit_blog_path(@blog) %> |
+  <%= link_to '戻る', blogs_path %>
+
+  <p>達成できたか出来てないか選択してください</p>
+  <select id="select">
+    <option value="A">達成できた</option>
+    <option value="B">達成できなかった</option>
+  </select>
+
+  <div class="a" >
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXJhJtYwYtuXJXgVt4oIDR4YFr0umUjAEvw&usqp=CAU">
+  </div>
+
+  <div class="b">
+    <img src="https://ge-mag.up.seesaa.net/image/bakanisuru-c5d4e-thumbnail2.png">
+  </div>
+
+  <script>
+  const select = document.querySelector("#select")
+  select.addEventListener("change", () => {
+    const b = document.querySelector(".b")
+    const a = document.querySelector(".a")
+    if (select.value === "A" ) {
+      b.style.visibility = "hidden"
+      a.style.visibility = "visible"
+
+    } else {
+      b.style.visibility = "visible" 
+      a.style.visibility = "hidden" 
+
+    }
+  })
+  </script>
+</div>
+</body>
+</html>

@@ -1,52 +1,92 @@
 <html>
-<div class="bg-mask">
+
 <head>
 <%= stylesheet_link_tag 'top.index', :media => "all" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
 
-</script>
+
+
 
 </head>
 <body>
-<div class="hp">
-
-    <div class="header1">
-    <div class="header-logo">Complete your tasks</div>
-    <div class="header-menu">
-
-        <a href="/top/show">自己紹介</a>
-        <a href="/users/sign_in">ログイン</a>
-        <a href="/users/sign_up">新規登録</a>
-    </div>  
-    </div>
-    <br>
-    <br>
-    <div class="hu">
-    <h2>普通ではないTodoリスト</h2>
-
-    <p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
-    だからカレンダー機能があるTodoリストを使う。</p>
-
-    </p>しかし、Todoリストでも面白い機能がなければ継続してはいけくれない。<br>
-    なので、当サイトでは以下の2つの機能を用いた。</p>
-
-    <li>達成率に応じたイラストの表示</li>
-    <li>達成したかしてないかの選択によって異なるイラスト</li>
-
-    <p>これらを利用してTodoリストを継続しよう</p>
-    <p> 右上の「自己紹介」を押してさらに見よう</p>
-    </div>
-    <div class="center">
-    <h2>使い方</h2>
-    <p>下の動画を参考にしてください</p>
-    
-    </div>
-
-    <div class="back">
-    <h3>アンケートのご協力</h3>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzsp80y82Pmdffoc7yeVkDxoo4BVAnwVI9Im0Mh22rfolzaQ/viewform?usp=sf_link">アンケート</a>
-    </div>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
+  </div>
 </div>
+<script>
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',100);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
+<div id="wrap">
+    <div class="hp">
+
+        <div class="header1">
+        <div class="header-logo">Complete your tasks</div>
+        <div class="header-menu">
+
+            <a href="/top/show">自己紹介</a>
+            <%= link_to "ログイン",blogs_path %>
+            <a href="/users/sign_up">新規登録</a>
+        </div>  
+        </div>
+        
+        
+        <div class="slide-bottom">
+            <div class="hu">
+            <h2>普通ではないTodoリスト</h2>
+            
+
+            <p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
+            だからカレンダー機能があるTodoリストを使う。</p>
+
+            </p>しかし、Todoリストでも面白い機能がなければ継続してはいけくれない。<br>
+            なので、当サイトでは以下の2つの機能を用いた。</p>
+
+            <li>達成率に応じたイラストの表示</li>
+            <li>登録したタスクがカレンダーに表示される</li>
+
+            <p>これらを利用してTodoリストを継続しよう</p>
+            <p> 右上の「自己紹介」を押してさらに見よう</p>
+            </div>
+            <br>
+            <div class="g">
+            <h2>使い方</h2>
+            <p>下の動画を参考にしてください</p>
+            
+            </div>
+            <br>
+
+            <div class="back">
+            <h2>アンケートのご協力</h2>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzsp80y82Pmdffoc7yeVkDxoo4BVAnwVI9Im0Mh22rfolzaQ/viewform?usp=sf_link">アンケート</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 </body>
 </html>

@@ -1,46 +1,78 @@
+<html>
 <head>
 <%= stylesheet_link_tag 'blogs.search', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-
-<h1>Complete your tasks</h1>
-
-<ul class="right">
-  <li><%= link_to "新規投稿へ", blogs_new_path %></li>
-  <li><%= link_to "カレンダーに戻る", blogs_index_path %></li>
-  <li><% if user_signed_in? %></li>
-  <li><%= link_to "マイページへ", user_path(current_user.id) %></li>
-</ul>  　
-<% end %>
-<h3>検索画面</h3>
-<%= form_tag({controller:"blogs",action:"search"}, method: :get) do %>
-   <%= text_field_tag :search %>
-   <%= submit_tag '検索'  %>
-<% end %>
-
-<br>
-<%= page_entries_info @blogs %>
-<div class="blogs-container">
-  <% @blogs.each do |t| %>
-    <div class="blog">
-      
-      <%= t.user.email %>
-      <%= t.title %>
-      <%= t.created_at %>
-      <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
-      <% if user_signed_in? %>
-      <% if current_user.already_liked?(@tweet) %>
-          <%= link_to tweet_like_path(@tweet), method: :delete do %>
-             <p>いいねを取り消す</p><%= @tweet.likes.count %>
-          <% end %>
-      <% else %>
-          <%= link_to tweet_likes_path(@tweet), method: :post do %>
-             <p>いいね</p><%= @tweet.likes.count %>
-          <% end %>
-      <% end %>
-  <% else %>
-  <% end %>
-      <br>
-    </div>
-  <% end %>
+<body>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
+  </div>
 </div>
-<%= paginate @blogs %>
+<script>
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
+
+<div id="wrap">
+  <div class="header1">
+    <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
+
+      <a href="/blogs/new">タスクを投稿</a>
+      <a href="/blogs/index">カレンダーに戻る</a>
+      <%= link_to "マイページ", user_path(current_user.id) %>
+    </div>  
+  </div>
+  <div class="do">
+    <h2>検索画面</h2>
+    <%= form_tag({controller:"blogs",action:"search"}, method: :get) do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag '検索'  %>
+    <% end %>
+
+    <br>
+    <%= page_entries_info @blogs %>
+    <div class="blogs-container">
+      <% @blogs.each do |t| %>
+        <div class="blog">
+        <div class="blog-box">
+          <div class="user-name"><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></div>
+          <div class="email"><%= t.user.email %></div>
+          <div class="title"><%= t.title %></div>
+
+          <div class="date"><%= t.date %></div>
+          
+          
+          
+          <br>
+        </div>
+      <% end %>
+    </div>
+    <%= paginate @blogs %>
+  </div>  
+</div>
+</body>
+</html>

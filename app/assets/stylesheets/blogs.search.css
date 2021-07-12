@@ -1,6 +1,16 @@
-ul.right{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    list-style: none;
+.do{
+    margin: 25px;
+    padding: 25px;
+}
+.user-name {
+    float: left;
+    margin-right: 10px;
+}
+.email{
+    margin: 5px;
+}
+.title{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
 }

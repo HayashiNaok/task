@@ -1,28 +1,67 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <!--アカウント編集時に名前を入力できるようにフォームを追加-->
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true %>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
   </div>
+</div>
+<script>
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
 
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div id="wrap">
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-  <!--アカウント編集時にプロフィールを入力できるようにフォームを追加-->
-  <div class="field">
-    <%= f.label :プロフィール %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="actions">
-    <%= f.submit "更新する" %>
-  </div>
-<% end %>
+    <!--アカウント編集時に名前を入力できるようにフォームを追加-->
+    <div class="field">
+      <%= f.label :名前 %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
 
-<%= link_to "戻る", :back %>
+    <div class="field">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <!--アカウント編集時にプロフィールを入力できるようにフォームを追加-->
+    <div class="field">
+      <%= f.label :プロフィール %><br />
+      <%= f.text_area :profile, autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "更新する" %>
+    </div>
+  <% end %>
+
+  <%= link_to "戻る", :back %>
+</div>  
+</body>

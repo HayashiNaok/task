@@ -1,34 +1,71 @@
 <html>
 <head>
 <%= stylesheet_link_tag 'password', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<div class="header1">
-  <div class="header-logo">Complete your tasks</div>
-  <div class="header-menu">
-
-    <a href="/users/sign_in">ログイン</a>
-    <a href="/users/sign_up">新規登録</a>
-    
-  </div>  
-</div>
-
-<br>
-<div class="center">
-<h2>パスワードを忘れた?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :メール %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<body>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
   </div>
+</div>
+<script>
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
+
+<div id="wrap">
+  <div class="header1">
+    <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
+
+      <a href="/users/sign_in">ログイン</a>
+      <a href="/users/sign_up">新規登録</a>
+      
+    </div>  
+  </div>
+
   <br>
-  <div class="actions">
-    <%= f.submit "メール先に送る" %>
+  <div class="center">
+  <h2>パスワードを忘れた?</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :メール %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "メール先に送る" %>
+    </div>
+  <% end %>
+
+
   </div>
-<% end %>
-
-
 </div>
+</body>
 </html>

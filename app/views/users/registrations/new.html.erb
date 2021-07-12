@@ -1,53 +1,88 @@
 <html>
 <head>
 <%= stylesheet_link_tag 'users.registrations.new', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-<div class="header1">
-  <div class="header-logo">Complete your tasks</div>
-  <div class="header-menu">
-
-    <a href="/users/sign_in">ログイン</a>
-    
-  </div>  
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
+  </div>
 </div>
+<script>
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
 
-<div class="top">
-<h2>新規登録</h2>
-<br>
+<div id="wrap">
+  <div class="header1">
+    <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-    <!--サインアップ時に名前を入力できるようにフォームを追加-->
-  <div class="field">
-    <%= f.label :ユーザー名 %><br />
-    <%= f.text_field :name, autofocus: true %>
+      <a href="/users/sign_in">ログイン</a>
+      
+    </div>  
   </div>
 
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :確認用パスワード %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  <div class="top">
+  <h2>新規登録</h2>
   <br>
-  <div class="actions">
-    <%= f.submit "登録する" %>
-  </div>
-<% end %>
 
-</div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+      <!--サインアップ時に名前を入力できるようにフォームを追加-->
+    <div class="field">
+      <%= f.label :ユーザー名 %><br />
+      <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :パスワード %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :確認用パスワード %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= f.submit "登録する" %>
+    </div>
+  <% end %>
+
+  </div>
+</div>  
 </body>
 </html>

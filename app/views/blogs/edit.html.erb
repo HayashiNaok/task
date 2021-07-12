@@ -1,56 +1,89 @@
 <html>
 <head>
 <%= stylesheet_link_tag 'blogs.edit', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-
-<div class="header2">
-<div class="header-logo">Complete your tasks</div>
-  <div class="header-menu">
-    <a href="/blogs/show"> 詳細に戻る</a>
-  </div>
-</div>
-
-<br>
-<br>
 <body>
-
-
-
-
-
-
-<%= form_with(model: @blog, local: true) do |form| %>
-
-  <div class="title">
-    <div class="text">
-    <%= form.label :　1日のタイトル%>
-    </div>
-    <%= form.text_field :title %>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
   </div>
-  <br>
-
-  <div class="time">
-    <%= form.label :　日付 %>
-    <%= form.date_field:date %>
-    
-  </div>
-  <br>
-  
-
-  <div class="content">
-    <%= form.label :　内容 %>
-    <%= form.text_field: content %>
-  </div>
-
-  <br>
-  <div class="submit">
-    <%= form.submit  "更新" %>
-  </div>
-
-<% end %>
 </div>
-<br>
+<script>
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
+<div id="wrap">
+
+  <div class="header2">
+  <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
+      <a href="/blogs/show"> 詳細に戻る</a>
+    </div>
+  </div>
+
+  <br>
+  <br>
 
 
+
+
+
+
+  <%= form_with(model: @blog, local: true) do |form| %>
+
+    <div class="title">
+      <div class="text">
+      <%= form.label :　1日のタイトル%>
+      </div>
+      <%= form.text_field :title %>
+    </div>
+    <br>
+
+    <div class="time">
+      <%= form.label :　日付 %>
+      <%= form.date_field:date %>
+      
+    </div>
+    <br>
+    
+
+    <div class="content">
+      <%= form.label :　内容 %>
+      <%= form.text_field: content %>
+    </div>
+
+    <br>
+    <div class="submit">
+      <%= form.submit  "更新" %>
+    </div>
+
+  <% end %>
+  </div>
+  <br>
+
+</div>
 </body>
 </html>

@@ -4,7 +4,7 @@ class UserController < ApplicationController
     end
 
     def show
-        @completes = Complete.all
-      
+        @blogs = Blog.where(user_id: current_user.id) 
+        
     end
 end

@@ -1,56 +1,90 @@
 <html>
 <head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
 <%= stylesheet_link_tag 'top.index', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-
-<p id="notice"><%= notice %></p>
-
-<div class="header1">
-  <div class="header-logo">Complete your tasks</div>
-  <div class="header-menu">
-
-    <a href="/blogs/new">タスクを投稿</a>
-    <a href="/blogs/search">検索画面に移る</a>
-    <%= link_to "マイページ", user_path(current_user.id) %>
-  </div>  
+<body>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
+  </div>
 </div>
+<script>
+$(function() {
+  var h = $(window).height();
+  
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
+<div id="wrap">
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="header1">
+    <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
 
-  <tbody>
-    <% @blogs.each do |blog| %>
+      <a href="/blogs/new">タスクを投稿</a>
+      <a href="/blogs/search">検索画面に移る</a>
+      <%= link_to "マイページ", user_path(current_user.id) %>
+    </div>  
+  </div>
+
+  <table>
+    <thead>
       <tr>
         
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @blogs.each do |blog| %>
+        <tr>
+          
+      <% end %>
+    </tbody>
+  </table>
+  
+
+
+  <br>
+  <div class="gf">
+    <%= month_calendar events: @blogs do |date, blogs| %>
+      <%= date.day %>
+
+      <% blogs.each do |blog| %>
+        <div>
+          <%= link_to blog.title, blog %>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>  
+  <br>
+  <footer>
 
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"menu" %>
 
-
-<br>
-<br>
-
-
-<br>
-<%= month_calendar events: @blogs do |date, blogs| %>
-  <%= date.day %>
-
-  <% blogs.each do |blog| %>
-    <div>
-      <%= link_to blog.title, blog %>
-    </div>
-  <% end %>
-<% end %>
-<br>
-<footer>
-
-  <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"menu" %>
-
-</footer>
+  </footer>
+</div>  
+</body>
 </html>

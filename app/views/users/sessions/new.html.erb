@@ -1,43 +1,75 @@
 <html>
 <head>
 <%= stylesheet_link_tag 'signin', :media => "all" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-<div class="header1">
-  <div class="header-logo">Complete your tasks</div>
-  <div class="header-menu">
-    <div class="d">
-      <a href="/users/sign_up">新規登録</a>
-    </div>
-    <div class="c">  
-      <a href="/users/password/new">パスワードを忘れた</a>
-    </div>
-  </div>  
-</div>
-<br>
 <body>
-
-<h2>ログイン画面</h2>
-<br>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <h2>メール </h2><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div id="loader-bg">
+  <div id="loader">
+    <img src="/assets/calender.png" alt="Now Loading..." />
+    <p>Now Loading...</p>
   </div>
-
-  <div class="field">
-    <h2>パスワード </h2><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
+</div>
+<script>
+$(function() {
+  var h = $(window).height();
   
+  $('#wrap').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+  
+$(window).on('load',function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#wrap').css('display', 'block');
+});
+  
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10);
+});
+  
+function stopload(){
+  $('#wrap').css('display','block');
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+}
+</script>
+
+<div id="wrap">
+  <div class="header1">
+    <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
+      
+        <a href="/users/sign_up">新規登録</a>
+        <a href="/users/password/new">パスワードを忘れた</a>
+      
+    </div>  
+  </div>
   <br>
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
+  <h2>ログイン画面</h2>
+  <br>
 
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <h2>メール </h2><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <h2>パスワード </h2><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    
+    <br>
+
+    <div class="actions">
+      <%= f.submit "ログイン" %>
+    </div>
+  <% end %>
+</div>
 </body>
 
 </html>

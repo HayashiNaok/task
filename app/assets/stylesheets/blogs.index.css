@@ -1,26 +1,41 @@
-.header-logo {
-    font-size:30px ;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.header1 {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
+@media screen and (min-width: 481px){ 
+    .header-logo {
+        font-size:30px ;
+        font-family: 'Times New Roman', Times, serif;
+    }
     
+    .header1 {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px;
+        margin: 25px;
+        
+    }
+    .header1 .header-menu a {
+        text-decoration: none;
+        color: #707070;
+        padding: 0 15px;
+        background-color:#F3F0EA;
+        margin: 10px;
+    }
+    
+    .header1 .header-menu a:hover {
+        border-bottom: 2px solid #FD5A5F;
+        padding-bottom: 10px;
+    }
+    footer {
+        padding: 10px;
+    }
+    .gf {
+        margin-left: 25px;
+        margin-right: 25px;
+        padding-left: 25px;
+        padding-right:25px ;
+    }
 }
-.header1 .header-menu a {
-    text-decoration: none;
-    color: #707070;
-    padding: 0 15px;
-    background-color:#F3F0EA;
-    margin: 10px;
+@media screen and (max-width: 480px){
+
 }
 
-.header1 .header-menu a:hover {
-    border-bottom: 2px solid #FD5A5F;
-    padding-bottom: 10px;
-}
-footer {
-    padding: 10px;
-}
+
+
