@@ -47,28 +47,29 @@ function stopload(){
     </div>  
   </div>
   <br>
-
-  <h2>ログイン画面</h2>
-  <br>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <h2>メール </h2><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <h2>パスワード </h2><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    
+  <div class="memo">
+    <h2>ログイン画面</h2>
     <br>
 
-    <div class="actions">
-      <%= f.submit "ログイン" %>
-    </div>
-  <% end %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <h2>メール </h2><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <h2>パスワード </h2><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      
+      <br>
+
+      <div class="actions">
+        <%= f.submit "ログイン" %>
+      </div>
+    <% end %>
+  </div>  
 </div>
 </body>
 
