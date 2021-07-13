@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_055220) do
+ActiveRecord::Schema.define(version: 2021_07_13_115841) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
-    t.text "content"
-    t.datetime "start_time"
+    t.date "date"
+    t.string "content"
+    t.string "check"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.date "date"
-    t.string "check"
   end
 
   create_table "completes", force: :cascade do |t|
@@ -34,15 +33,6 @@ ActiveRecord::Schema.define(version: 2021_06_30_055220) do
     t.string "name"
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "meetings", force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
@@ -54,14 +44,6 @@ ActiveRecord::Schema.define(version: 2021_06_30_055220) do
     t.string "task"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "seminars", force: :cascade do |t|
-    t.string "title"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
