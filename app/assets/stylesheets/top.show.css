@@ -18,7 +18,7 @@ body:before{
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
-    position: absolute;
+    position: fixed;
     top: -5px;
     left: -5px;
     right: -5px;
@@ -38,21 +38,7 @@ body:before{
     height: 50%;
 }
 
-.wrap-second:before{
-    content: '';
-    background: inherit;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
-    z-index: -1;
-}
+
 .last{
     margin: 25px;
     padding: 25px;

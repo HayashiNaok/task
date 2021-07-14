@@ -4,97 +4,97 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-<div id="loader-bg">
-  <div id="loader">
-    <img src="/assets/calender.png" alt="Now Loading..." />
-    <p>Now Loading...</p>
+  <div id="loader-bg">
+    <div id="loader">
+      <img src="/assets/calender.png" alt="Now Loading..." />
+      <p>Now Loading...</p>
+    </div>
   </div>
-</div>
-<script>
-$(function() {
-  var h = $(window).height();
-  
-  $('#wrap').css('display','none');
-  $('#loader-bg ,#loader').height(h).css('display','block');
-});
-  
-$(window).on('load',function () { //全ての読み込みが完了したら実行
-  $('#loader-bg').delay(900).fadeOut(800);
-  $('#loader').delay(600).fadeOut(300);
-  $('#wrap').css('display', 'block');
-});
-  
-//10秒たったら強制的にロード画面を非表示
-$(function(){
-  setTimeout('stopload()',100);
-});
-  
-function stopload(){
-  $('#wrap').css('display','block');
-  $('#loader-bg').delay(900).fadeOut(800);
-  $('#loader').delay(600).fadeOut(300);
-}
-</script>
+  <script>
+  $(function() {
+    var h = $(window).height();
+    
+    $('#wrap').css('display','none');
+    $('#loader-bg ,#loader').height(h).css('display','block');
+  });
+    
+  $(window).on('load',function () { //全ての読み込みが完了したら実行
+    $('#loader-bg').delay(900).fadeOut(800);
+    $('#loader').delay(600).fadeOut(300);
+    $('#wrap').css('display', 'block');
+  });
+    
+  //10秒たったら強制的にロード画面を非表示
+  $(function(){
+    setTimeout('stopload()',100);
+  });
+    
+  function stopload(){
+    $('#wrap').css('display','block');
+    $('#loader-bg').delay(900).fadeOut(800);
+    $('#loader').delay(600).fadeOut(300);
+  }
+  </script>
 
-<div id="wrap">
-<div class="co">
-    <div class="header1">
-    <div class="header-logo">Complete your tasks</div>
-    <div class="header-menu">
+  <div id="wrap">
+  <div class="co">
+      <div class="header1">
+      <div class="header-logo">Complete your tasks</div>
+      <div class="header-menu">
 
-        <a href="/top/index">トップページ</a>
-    </div>  
-    </div>
-    <div class="last">
-        <div class="center-container">
-        <h2>自己紹介</h2>
-        <br>
+          <a href="/top/index">トップページ</a>
+      </div>  
+      </div>
+      <div class="last">
+          <div class="center-container">
+          <h2>自己紹介</h2>
+          <br>
 
-        </div>
+          </div>
 
-        <div class="container">
-        <h2>普通ではないTodoリスト</h2>
+          <div class="container">
+          <h2>普通ではないTodoリスト</h2>
 
-        <p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
-        だからカレンダー機能があるTodoリストを使う。</p>
+          <p>頭の中で一日のやることリストを考え、達成させるのは困難。<br>
+          だからカレンダー機能があるTodoリストを使う。</p>
 
-        </p>しかし、Todoリストでも面白い機能がなければ継続してはいけくれない。<br>
-        なので、当サイトでは以下の2つの機能を用いた。</p>
+          </p>しかし、Todoリストでも面白い機能がなければ継続してはいけくれない。<br>
+          なので、当サイトでは以下の2つの機能を用いた。</p>
 
-        <li>達成率に応じたイラストの表示</li>
-        <li>達成したかしてないかの選択によって異なるイラスト</li>
+          <li>達成率に応じたイラストの表示</li>
+          <li>達成したかしてないかの選択によって異なるイラスト</li>
 
-        </div>
+          </div>
 
-        <div class="wrap">
-        <h2>機能紹介</h2>
-        </div>
-        <br>
+          <div class="wrap">
+          <h2>機能紹介</h2>
+          </div>
+          <br>
 
-        <div class="wrap-first">
-        <h2>カレンダー機能</h2>
-        <div class ="first">
-            <img src="/assets/カレンダー機能.png">
-        </div>
+          <div class="wrap-first">
+          <h2>カレンダー機能</h2>
+          <div class ="first">
+              <img src="/assets/カレンダー機能.png">
+          </div>
 
-        <div class="wrap-second">
-            <h2>イラスト機能</h2>
-            <p>自分で設定したタスクを達成することができたら</p>
-            <div class="third">
-                <img src="/assets/達成できた.png">
-            </div>
-            
-            <p>自分で設定してタスクを達成することができなかったら</p>
-            <div class="fourth">
-                <img src="/assets/達成できなかった.png">
-            </div>    
-            <p>このように2つのパターンがあり、面白味があると思う</p>
-            <p>「トップページ」を押して使ってみよう!
-        </div>
-    </div>
+          <div class="wrap-second">
+              <h2>イラスト機能</h2>
+              <p>自分で設定したタスクを達成することができたら</p>
+              <div class="third">
+                  <img src="/assets/達成できた.png">
+              </div>
+              
+              <p>自分で設定してタスクを達成することができなかったら</p>
+              <div class="fourth">
+                  <img src="/assets/達成できなかった.png">
+              </div>    
+              <p>このように2つのパターンがあり、面白味があると思う</p>
+              <p>「トップページ」を押して使ってみよう!
+          </div>
+      </div>
 
-</div>
-</div>
+  </div>
+  </div>
 
 </body>
 </html>
