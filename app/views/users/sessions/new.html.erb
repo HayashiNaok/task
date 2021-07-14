@@ -54,7 +54,7 @@ function stopload(){
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <h2>メール </h2><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'me-ru' %>
       </div>
 
       <div class="field">
