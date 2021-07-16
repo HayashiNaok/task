@@ -67,3 +67,213 @@ input[type="submit"]:hover {
     background: gray;
     color: white;
 }
+
+
+      
+.btn {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1abc9c;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    cursor: pointer;
+}
+.contact {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #F9F9F9;
+    width: 450px;
+    height: 500px;
+    border-radius: 3px;
+    box-shadow: 0 3px 36px 0 rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transition: 0.3s;
+}
+.contact.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100px);
+}
+  
+h1 {
+    background: #1abc9c;
+    margin: 0;
+    padding: 8px;
+    color: white;
+    font: 300 20px Roboto;
+    text-align: center;
+}
+h1 span {
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+h1 span:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.group {
+    width: 300px;
+    margin: auto;
+    position: relative;
+}
+.group1 {
+    width: 300px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(to bottom, transparent 92%, #1abc9c 8%) no-repeat;
+    background-position: -300px 0;
+    background-size: 300px 100%;
+    display: block;
+    width: 300px;
+    padding: 10px 0 5px 0;
+    margin-top: 30px;
+    border: none;
+    border-bottom: solid 1px #1abc9c;
+    font-size: 15px;
+    transition: all 0.3s;  
+}
+.group2 {
+    width: 300px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(to bottom, transparent 92%, #1abc9c 8%) no-repeat;
+    background-position: -300px 0;
+    background-size: 300px 100%;
+    display: block;
+    width: 300px;
+    padding: 5px 0;
+    margin-top: 30px;
+    border: none;
+    border-bottom: solid 1px #1abc9c;
+    font-size: 15px;
+    transition: all 0.3s;  
+}
+.group3 {
+    width: 300px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(to bottom, transparent 92%, #1abc9c 8%) no-repeat;
+    background-position: -300px 0;
+    background-size: 300px 100%;
+    display: block;
+    width: 300px;
+    padding: 10px 0 5px 0;
+    margin-top: 30px;
+    border: none;
+    border-bottom: solid 1px #1abc9c;
+    font-size: 15px;
+    transition: all 0.3s;  
+}  
+label {
+    position: absolute;
+    top: 7px;
+    font: 400 15px Roboto;
+    color: #A9A9A9;
+    cursor: text;
+    transition: 0.2s;
+}
+.group1:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #F9F9F9 inset;
+}
+.group1:focus {
+    background-position: 0 0;
+    outline: none;
+}
+.group1:valid {
+    background-position: 0 0;
+    outline: none;
+}
+.group1:focus ~ label {
+    top: -12px;
+    color: #1abc9c;
+    font: 700 12px Roboto;
+}
+.group1:valid ~ label {
+    top: -12px;
+    color: #1abc9c;
+    font: 700 12px Roboto;
+}
+.group2:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #F9F9F9 inset;
+}
+.group2:focus {
+    background-position: 0 0;
+    outline: none;
+}
+.group2:valid {
+    background-position: 0 0;
+    outline: none;
+}
+.group2:focus ~ label {
+    top: -12px;
+    color: #1abc9c;
+    font: 700 12px Roboto;
+}
+.group2:valid ~ label {
+    top: -12px;
+    color: #1abc9c;
+    font: 700 12px Roboto;
+}
+.group3:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #F9F9F9 inset;
+}
+.group3:focus {
+    background-position: 0 0;
+    outline: none;
+}
+.group3:valid {
+    background-position: 0 0;
+    outline: none;
+}
+.group3:focus ~ label {
+    top: -12px;
+    color: #1abc9c;
+    font: 700 12px Roboto;
+}
+.group3:valid ~ label {
+    top: -12px;
+    color: #1abc9c;
+    font: 700 12px Roboto;
+}
+.submit {
+    display: block;
+    background: #1abc9c url("https://cbwconline.com/IMG/Send.svg") no-repeat center center;
+    width: 200px;
+    height: 30px;
+    margin: 15px auto;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    
+}
+.submit:hover {
+    nox-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+  
+::selection {
+    background: #1abc9c;
+    color: white;
+}
+.er {
+    text-align: center;
+}

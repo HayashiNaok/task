@@ -40,7 +40,7 @@ function stopload(){
   <div class="header2">
   <div class="header-logo">Complete your tasks</div>
     <div class="header-menu">
-      <a href="/blogs/show"> 詳細に戻る</a>
+      <%= link_to "カレンダーに戻る", blogs_index_path %>
     </div>
   </div>
 
@@ -54,35 +54,35 @@ function stopload(){
 
   <%= form_with(model: @blog, local: true) do |form| %>
 
-    <div class="title">
-      <div class="text">
-      <%= form.label :　1日のタイトル%>
-      </div>
-      <%= form.text_field :title %>
-    </div>
-    <br>
-
-    <div class="time">
-      <%= form.label :　日付 %>
-      <%= form.date_field:date %>
+    <div class="btn"></div>
+      <div class="overlay"></div>
+    <div class="contact">
+      <h1>投稿画面<span id="close"></span></h1>
+      <div class="group"><%= form.text_field :title, class: 'group1' %><label for="title">1日のタイトル</label></div>
+      <br>
+      <div class="group"><%= form.datetime_select :start_time, class: 'group2' %></div>
       
-    </div>
+      <div class="group"><%= form.text_area :content, class: 'group3',:size=>"60x10" %><label for="content">内容</label></div>
+      <br>
+      <div class="er">
+        <%= form.submit "更新", class: "sumit" %>
+      </div>
+    </div>   
     <br>
-    
+    <script>
+      $("#close ,.overlay").on('click', function(){
+        $(".contact ,.overlay").addClass("hidden");
+      })
 
-    <div class="content">
-      <%= form.label :　内容 %>
-      <%= form.text_field: content %>
-    </div>
-
-    <br>
-    <div class="submit">
-      <%= form.submit  "更新" %>
-    </div>
+      $(".btn").on('click', function(){
+        $(".contact ,.overlay").removeClass("hidden");
+      })
+    </script>
 
   <% end %>
   </div>
   <br>
+  
 
 </div>
 </body>

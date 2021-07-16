@@ -43,6 +43,7 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
     @blog.destroy
     redirect_to blogs_path, notice:"削除しました"
+
   end
 
   def edit
@@ -51,7 +52,7 @@ class BlogsController < ApplicationController
 
   def update
     @blog = Blog.find(params[:id])
-    if @blog.update(blog_parameter)
+    if @blog.update(blog_params)
       redirect_to blogs_path, notice: "編集しました"
     else
       render 'edit'

@@ -46,40 +46,41 @@ function stopload(){
     </div>  
   </div>
 
-  <div class="top">
-  <h2>新規登録</h2>
-  <br>
+  
+  
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
       <!--サインアップ時に名前を入力できるようにフォームを追加-->
-    <div class="field">
-      <%= f.label :ユーザー名 %><br />
-      <%= f.text_field :name, autofocus: true %>
-    </div>
-
-    <div class="field">
-      <%= f.label :メールアドレス %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :パスワード %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :確認用パスワード %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-    <br>
-    <div class="actions">
-      <%= f.submit "登録する" %>
-    </div>
+    
+    
+    <div class="form-wrapper">
+      <h1>Sign Up</h1>
+      <div class="actions">
+        <div class="form-item">
+          <label for="user"></label>
+          <%= f.text_field :name, autofocus: true,class: 'me-ru', :placeholder => "ユーザー名" %>
+        </div>
+        <div class="form-item">
+          <label for="email"></label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'me-ru', :placeholder => "メール"  %>
+        </div>
+        <div class="form-item">
+          <label for="password"></label>
+          <% if @minimum_password_length %>
+            <em>パスワード<%= @minimum_password_length %> は文字以上</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" ,class: 'me-ru', :placeholder => "パスワード" %>
+        </div>
+        <div class="password2">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password",class: 'me-ru', :placeholder => "確認用パスワード"  %>
+        </div>
+        <div class="button-panel">
+          <%= f.submit "登録する" %>
+        </div>
+      </div>
+    </div>  
   <% end %>
 
   </div>

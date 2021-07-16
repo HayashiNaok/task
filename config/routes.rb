@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   get 'top/show' =>'top#show'
   post 'blogs' => 'blogs#create'
   get 'blogs/test' => 'blogs#test'
-
+  get 'blogs/edit' => 'blogs#edit'
+  get 'blogs/show' => 'blogs#show'
    
   resources :blogs do
   resources :likes, only: [:create, :destroy]

@@ -64,6 +64,9 @@ function stopload(){
           <div class="title"><%= t.title %></div>
 
           <div class="date"><%= t.date %></div>
+          <% if user_signed_in? && current_user.id == t.user_id %>  
+            <%= link_to '削除',blog_path(t.id), method: :delete %>
+        　<% end %>
           
           
           

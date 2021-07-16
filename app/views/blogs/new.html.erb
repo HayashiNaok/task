@@ -3,7 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body>
+
 <div id="loader-bg">
   <div id="loader">
     <img src="/assets/calender.png" alt="Now Loading..." />
@@ -49,43 +49,41 @@ function stopload(){
   </div>  
 
   <div class="main">
-    <h2>投稿画面</h2>
-    
+   
   
-  <br>
+    <br>
 
-  <%= form_with(model: @blog, local: true) do |form| %>
+    <%= form_with(model: @blog, local: true) do |form| %>
 
-    <div class="title">
-      <div class="text">
-      <%= form.label :　1日のタイトル%>
+      
+       
+
+      <div class="btn"></div>
+      <div class="overlay"></div>
+    <div class="contact">
+      <h1>投稿画面<span id="close"></span></h1>
+      <div class="group"><%= form.text_field :title, class: 'group1' %><label for="title">1日のタイトル</label></div>
+      <br>
+      <div class="group"><%= form.datetime_select :start_time, class: 'group2' %></div>
+      
+      <div class="group"><%= form.text_area :content, class: 'group3',:size=>"60x10" %><label for="content">内容</label></div>
+      <br>
+      <div class="er">
+        <%= form.submit "投稿", class: "sumit" %>
       </div>
-      <%= form.text_field :title %>
-    </div>
-    <br>
+    </div>   
 
-    <div class="time">
-      <%= form.label :　日付 %>
-      <%= form.datetime_select :start_time %>
-    
-    </div>
-    <br>
-  
+    <% end %>
+    <script>
+    $("#close ,.overlay").on('click', function(){
+      $(".contact ,.overlay").addClass("hidden");
+    })
 
-    <div class="content">
-      <%= form.label :　内容 %>
-      <textarea name="in01" col="30" rows="3" maxlength="100" placeholder="内容を入力してくだい">
-      </textarea>
-    </div>
-
-    <br>
-    <div class="submit">
-      <%= form.submit  "投稿" %>
-    </div>
-
-  <% end %>
+    $(".btn").on('click', function(){
+      $(".contact ,.overlay").removeClass("hidden");
+    })
+    </script>
   </div>
   <br>
 
 </div>
-</body>

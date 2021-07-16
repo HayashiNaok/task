@@ -39,75 +39,85 @@ function stopload(){
 
 <div id="wrap">
   <p id="notice"><%= notice %></p>
+  <div class="header1">
+    <div class="header-logo">Complete your tasks</div>
+    <div class="header-menu">
 
-
-  <p>
-    <strong>タイトル</strong>
-    <%= @blog.title %>
-  </p>
-
-  <p>
-    <strong>日付</strong>
-    <%= @blog.date %>
-  </p>
-
-  <p>
-    <strong>内容</strong>
-    <%= @blog.content %>
-  </p>
-
-
-  <%= form_with(model: @blog, local: true) do |form| %>
-
-    
-    <div class="time">
-    
-      <%= form.radio_button :check, "達成した" %>達成した 
-      <%= form.radio_button :check ,"達成してない" %>達成できなかった
-    </div>
-    <br>
-    
-    <br>
-    <div class="submit">
-      <%= form.submit  "更新" %>
       
+      <%= link_to "編集", edit_blog_path(@blog) %>
+      <%= link_to "カレンダーに戻る", blogs_index_path %>
+
+    </div>  
+  </div>
+  <div class="h">
+
+    <p>
+      <strong>タイトル</strong>
+      <%= @blog.title %>
+    </p>
+
+    <p>
+      <strong>日付</strong>
+      <%= @blog.start_time %>
+    </p>
+
+    <p>
+      <strong>内容</strong>
+      <%= @blog.content %>
+    </p>
+
+    <p>達成できたか出来てないか選択してください</p>
+    <select id="select">
+      <option value="A">達成できた</option>
+      <option value="B">達成できなかった</option>
+    </select>
+
+    <div class="a" >
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXJhJtYwYtuXJXgVt4oIDR4YFr0umUjAEvw&usqp=CAU">
     </div>
 
-  <% end %>
+    <div class="b">
+      <img src="https://ge-mag.up.seesaa.net/image/bakanisuru-c5d4e-thumbnail2.png">
+    </div>
 
-  <%= link_to '編集', edit_blog_path(@blog) %> |
-  <%= link_to '戻る', blogs_path %>
+    <script>
+    const select = document.querySelector("#select")
+    select.addEventListener("change", () => {
+      const b = document.querySelector(".b")
+      const a = document.querySelector(".a")
+      if (select.value === "A" ) {
+        b.style.visibility = "hidden"
+        a.style.visibility = "visible"
 
-  <p>達成できたか出来てないか選択してください</p>
-  <select id="select">
-    <option value="A">達成できた</option>
-    <option value="B">達成できなかった</option>
-  </select>
+      } else {
+        b.style.visibility = "visible" 
+        a.style.visibility = "hidden" 
 
-  <div class="a" >
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXJhJtYwYtuXJXgVt4oIDR4YFr0umUjAEvw&usqp=CAU">
+      }
+    })
+    </script>
+
+
+    <%= form_with(model: @blog, local: true) do |form| %>
+     
+      <div class="time">
+      
+        <%= form.radio_button :check, "達成した" %>達成した 
+        <%= form.radio_button :check ,"達成してない" %>達成できなかった
+      </div>
+      <br>
+      
+      <br>
+      <div class="submit">
+        <%= form.submit  "更新" %>
+        
+      </div>
+
+    <% end %>
+
+    
+    
   </div>
-
-  <div class="b">
-    <img src="https://ge-mag.up.seesaa.net/image/bakanisuru-c5d4e-thumbnail2.png">
-  </div>
-
-  <script>
-  const select = document.querySelector("#select")
-  select.addEventListener("change", () => {
-    const b = document.querySelector(".b")
-    const a = document.querySelector(".a")
-    if (select.value === "A" ) {
-      b.style.visibility = "hidden"
-      a.style.visibility = "visible"
-
-    } else {
-      b.style.visibility = "visible" 
-      a.style.visibility = "hidden" 
-
-    }
-  })
-  </script>
 </div>
 </body>
 </html>
