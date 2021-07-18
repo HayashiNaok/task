@@ -2,3 +2,91 @@
     margin: 25px;
     padding: 25px;
 }
+.se {
+  display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.se .b img {
+    width: 50%;
+    height: 50%;
+}
+.tn {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1abc9c url("https://cbwconline.com/IMG/Codepen/Compose.svg") center center no-repeat;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    cursor: pointer;
+}
+.ontact {
+    margin: auto;
+    position: absolute;
+    margin-top: 125px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #F9F9F9;
+    width: 800px;
+    height: 600px;
+    border-radius: 3px;
+    box-shadow: 0 3px 36px 0 rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transition: 0.3s;
+}
+.ontact.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100px);
+}
+  
+h1 {
+    background: #1abc9c;
+    margin: 0;
+    padding: 8px;
+    color: white;
+    font: 300 20px Roboto;
+    text-align: center;
+}
+h1 span {
+    display: block;
+    background: url("https://cbwconline.com/IMG/Close.svg") center center no-repeat;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+h1 span:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+  
+.group {
+    width: 250px;
+    margin: 15px;
+    margin-bottom: auto;
+    position: relative;
+}
+  
+label {
+    position: absolute;
+    top: 7px;
+    font: 400 15px Roboto;
+    color: #A9A9A9;
+    cursor: text;
+    transition: 0.2s;
+}
+.gt {
+    padding-left: 15px;
+}

@@ -47,35 +47,41 @@ function stopload(){
     </div>  
   </div>
   <div class="do">
-    <h2>検索画面</h2>
-    <%= form_tag({controller:"blogs",action:"search"}, method: :get) do %>
-      <%= text_field_tag :search %>
-      <%= submit_tag '検索'  %>
-    <% end %>
+    <div class="tn"></div>
+      <div class="verlay"></div>
+    <div class="ntact">
+      <h1>検索画面<span id="close"></span></h1>
+      <div class="v">
+        <%= form_tag({controller:"blogs",action:"search"}, method: :get) do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '検索'  %>
+        <% end %>
+      </div>  
+      <br>
+      <%= page_entries_info @blogs %>
+      <div class="blogs-container">
+        <% @blogs.each do |t| %>
+          <div class="blog">
+          <div class="blog-box">
+            <div class="user-name"><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></div>
+            <div class="email"><%= t.user.email %></div>
+            <div class="title"><%= t.title %></div>
+            <div class="content"><%= t.content %></div>
 
-    <br>
-    <%= page_entries_info @blogs %>
-    <div class="blogs-container">
-      <% @blogs.each do |t| %>
-        <div class="blog">
-        <div class="blog-box">
-          <div class="user-name"><a href="/users/<%= t.user.id %>"><%= t.user.name %></a></div>
-          <div class="email"><%= t.user.email %></div>
-          <div class="title"><%= t.title %></div>
-
-          <div class="date"><%= t.date %></div>
-          <% if user_signed_in? && current_user.id == t.user_id %>  
-            <%= link_to '削除',blog_path(t.id), method: :delete %>
-        　<% end %>
-          
-          
-          
-          <br>
-        </div>
-      <% end %>
+            <div class="date"><%= t.start_time %></div>
+            <% if user_signed_in? && current_user.id == t.user_id %>  
+              <%= button_to '削除',blog_path(t.id), method: :delete %>
+          　<% end %>
+            
+            
+            
+            <br>
+          </div>
+        <% end %>
+      </div>
+      <%= paginate @blogs %>
     </div>
-    <%= paginate @blogs %>
-  </div>  
+  </div>    
 </div>
 </body>
 </html>

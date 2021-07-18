@@ -50,70 +50,82 @@ function stopload(){
     </div>  
   </div>
   <div class="h">
+        <div class="tn"></div>
+      <div class="verlay"></div>
+    <div class="ontact">
+      <h1>登録画面<span id="close"></span></h1>
+      <div class="group">     
+        <p>
+          <strong>タイトル</strong>
+          <%= @blog.title %>
+        </p>
 
-    <p>
-      <strong>タイトル</strong>
-      <%= @blog.title %>
-    </p>
+        <p>
+          <strong>時間</strong>
+          <%= @blog.start_time %>
+        </p>
 
-    <p>
-      <strong>日付</strong>
-      <%= @blog.start_time %>
-    </p>
-
-    <p>
-      <strong>内容</strong>
-      <%= @blog.content %>
-    </p>
-
-    <p>達成できたか出来てないか選択してください</p>
-    <select id="select">
-      <option value="A">達成できた</option>
-      <option value="B">達成できなかった</option>
-    </select>
-
-    <div class="a" >
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXJhJtYwYtuXJXgVt4oIDR4YFr0umUjAEvw&usqp=CAU">
+        <p>
+          <strong>内容</strong>
+          <%= @blog.content %>
+        </p>
     </div>
+    <br>
+      <div class="gt">
+              <p>達成できたか出来てないか選択してください</p>
+        <select id="select">
+          <option value="A">達成できた</option>
+          <option value="B">達成できなかった</option>
+        </select>
+        <div class="se">
+          <div class="a" >
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXJhJtYwYtuXJXgVt4oIDR4YFr0umUjAEvw&usqp=CAU">
+          </div>
 
-    <div class="b">
-      <img src="https://ge-mag.up.seesaa.net/image/bakanisuru-c5d4e-thumbnail2.png">
-    </div>
+          <div class="b">
+            <img src="https://ge-mag.up.seesaa.net/image/bakanisuru-c5d4e-thumbnail2.png">
+          </div>
+        </div>
 
-    <script>
-    const select = document.querySelector("#select")
-    select.addEventListener("change", () => {
-      const b = document.querySelector(".b")
-      const a = document.querySelector(".a")
-      if (select.value === "A" ) {
-        b.style.visibility = "hidden"
-        a.style.visibility = "visible"
+        <script>
+        const select = document.querySelector("#select")
+        select.addEventListener("change", () => {
+          const b = document.querySelector(".b")
+          const a = document.querySelector(".a")
+          if (select.value === "A" ) {
+            b.style.visibility = "hidden"
+            a.style.visibility = "visible"
 
-      } else {
-        b.style.visibility = "visible" 
-        a.style.visibility = "hidden" 
+          } else {
+            b.style.visibility = "visible" 
+            a.style.visibility = "hidden" 
 
-      }
-    })
-    </script>
+          }
+        })
+        </script>
 
 
-    <%= form_with(model: @blog, local: true) do |form| %>
-     
-      <div class="time">
-      
-        <%= form.radio_button :check, "達成した" %>達成した 
-        <%= form.radio_button :check ,"達成してない" %>達成できなかった
-      </div>
-      <br>
-      
-      <br>
-      <div class="submit">
-        <%= form.submit  "更新" %>
+        <%= form_with(model: @blog, local: true) do |form| %>
         
-      </div>
+          <div class="time">
+          
+            <%= form.radio_button :check, "達成した" %>達成した 
+            <%= form.radio_button :check ,"達成してない" %>達成できなかった
+          </div>
+          <br>
+          
+          
+          
+            <%= form.submit  "更新" %>
+            
+          
 
-    <% end %>
+        <% end %>
+      </div>
+    </div>   
+
+
+
 
     
     

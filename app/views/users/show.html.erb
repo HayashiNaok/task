@@ -40,7 +40,7 @@ function stopload(){
           <div class="header-logo">Complete your tasks</div>
           <div class="header-menu">
 
-            <%= link_to "投稿一覧に戻る", blogs_search_path %>
+            <%= link_to "検索一覧に戻る", blogs_search_path %>
             <%= link_to "カレンダーに戻る", blogs_index_path %>
             <% if current_user.id == @user.id %>
               <%= link_to "編集する", edit_user_registration_path %>
@@ -61,7 +61,7 @@ function stopload(){
 
 
     <br>
-    <h2>カレンダー</h2>
+    
 
     <table>
         <thead>
@@ -97,11 +97,7 @@ function stopload(){
       <% end %>
       
   </div>    
-  <div class ="footer">
-
-      <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class:"menu" %>
-
-  </div>
+  
 </div>  
 </body>
 </html>

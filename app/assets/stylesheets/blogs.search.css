@@ -17,3 +17,55 @@
 .search {
     padding: 10px;
 }
+.ntact {
+    margin: auto;
+    position: absolute;
+    margin-top: 125px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #F9F9F9;
+    width: 800px;
+    height: 600px;
+    border-radius: 3px;
+    box-shadow: 0 3px 36px 0 rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transition: 0.3s;
+    overflow: scroll;
+}
+.ntact.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100px);
+}
+.blog-box {
+    padding-left: 15px;
+}
+.v {
+    padding-left: 15px;
+    padding-top: 15px;
+}
+h1 {
+    background: #1abc9c;
+    margin: 0;
+    padding: 8px;
+    color: white;
+    font: 300 20px Roboto;
+    text-align: center;
+}
+h1 span {
+    display: block;
+    background: url("https://cbwconline.com/IMG/Close.svg") center center no-repeat;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+h1 span:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

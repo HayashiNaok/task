@@ -8,9 +8,9 @@ class BlogsController < ApplicationController
     if params[:search] != nil && params[:search] != ''
       #部分検索かつ複数検索
       search = params[:search]
-      @blogs = Blog.joins(:user).where("title LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%").page(params[:page]).per(10)
+      @blogs = Blog.joins(:user).where("name LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%").page(params[:page]).per(20)
     else
-      @blogs = Blog.all.page(params[:page]).per(10)
+      @blogs = Blog.all.page(params[:page]).per(20)
     end
   end
 
