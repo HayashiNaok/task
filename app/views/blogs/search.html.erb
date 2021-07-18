@@ -72,6 +72,7 @@ function stopload(){
             <% if user_signed_in? && current_user.id == t.user_id %>  
               <%= button_to '削除',blog_path(t.id), method: :delete %>
           　<% end %>
+           
             
             
             

@@ -78,3 +78,32 @@ td.fc-sat {
 p{
     font-size: 17.5px;
 }
+.hako {
+    background-color: white;
+    
+    overflow: scroll;
+    height: 300px;
+}
+h1 {
+    background: #1abc9c;
+    margin: 0;
+    padding: 8px;
+    color: white;
+    font: 300 20px Roboto;
+    text-align: center;
+}
+h1 span {
+    display: block;
+    background: url("https://cbwconline.com/IMG/Close.svg") center center no-repeat;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+h1 span:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
