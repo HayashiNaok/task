@@ -69,7 +69,7 @@ function stopload(){
         <div class="form-item">
           <label for="password"></label>
           <% if @minimum_password_length %>
-            <em>パスワード<%= @minimum_password_length %> は文字以上</em>
+            <em>パスワードは<%= @minimum_password_length %> 文字以上</em>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password" ,class: 'me-ru', :placeholder => "パスワード" %>
         </div>
